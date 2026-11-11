@@ -1,0 +1,25 @@
+* {
+    bg: #f4f4f0;
+    bg-alt: #e8e9e2;
+    fg: #343831;
+    accent: #65765f;
+    background-color: @bg;
+    text-color: @fg;
+    border-color: @accent;
+}
+window {
+    width: 38%;
+    padding: 22px;
+    border: 1px;
+    border-radius: 10px;
+    border-color: @border-color;
+    background-color: @bg;
+}
+mainbox { spacing: 14px; background-color: transparent; }
+inputbar { padding: 10px 12px; background-color: @bg-alt; border-radius: 7px; }
+prompt { text-color: @accent; }
+entry { text-color: @fg; placeholder: "Search applications…"; }
+listview { lines: 8; spacing: 4px; fixed-height: false; background-color: transparent; }
+element { padding: 9px 10px; border-radius: 6px; }
+element selected { background-color: @bg-alt; text-color: @accent; }
+element-text { background-color: transparent; }

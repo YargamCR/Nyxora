@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+set -u
+CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+printf 'Nyxora environment check\n\n'
+missing=0
+for cmd in awesome rofi alacritty picom; do
+  if command -v "$cmd" >/dev/null 2>&1; then
+    printf '  [OK]   %s (%s)\n' "$cmd" "$(command -v "$cmd")"
+  else
+    printf '  [MISS] %s\n' "$cmd"
+    missing=1
+  fi
+done
+printf '\nSession: %s\nDisplay: %s\n' "${XDG_SESSION_TYPE:-unknown}" "${DISPLAY:-not set}"
+printf '\nConfiguration files:\n'
+for f in \
+  "$CONFIG_HOME/awesome/rc.lua" \
+  "$CONFIG_HOME/awesome/theme.lua" \
+  "$CONFIG_HOME/rofi/config.rasi" \
+  "$CONFIG_HOME/rofi/theme.rasi" \
+  "$CONFIG_HOME/alacritty/alacritty.toml" \
+  "$CONFIG_HOME/picom/picom.conf"; do
+  if [[ -e "$f" ]]; then printf '  [OK]   %s\n' "$f"; else printf '  [MISS] %s\n' "$f"; missing=1; fi
+done
+printf '\nAwesomeWM syntax:\n'
+if command -v awesome >/dev/null 2>&1; then
+  if awesome -k -c "$CONFIG_HOME/awesome/rc.lua"; then :; else missing=1; fi
+fi
+if ((missing)); then
+  printf '\nSome checks failed. Review the missing items above.\n'
+  exit 1
+fi
+printf '\nAll Nyxora checks passed.\n'

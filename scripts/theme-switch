@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -euo pipefail
+THEME="${1:-}"
+[[ "$THEME" == "dark" || "$THEME" == "light" ]] || {
+  echo "Usage: nyxora-theme [dark|light]" >&2
+  exit 2
+}
+CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+AWESOME="$CONFIG_HOME/awesome"
+ROFI="$CONFIG_HOME/rofi"
+[[ -f "$AWESOME/themes/$THEME.lua" && -f "$ROFI/themes/$THEME.rasi" ]] || {
+  echo "Theme files missing for: $THEME" >&2
+  exit 1
+}
+ln -sfn "themes/$THEME.lua" "$AWESOME/theme.lua"
+ln -sfn "themes/$THEME.rasi" "$ROFI/theme.rasi"
+printf 'Nyxora theme set to: %s\n' "$THEME"
+if command -v awesome-client >/dev/null 2>&1 && pgrep -x awesome >/dev/null 2>&1; then
+  awesome-client 'awesome.restart()' >/dev/null 2>&1 || true
+fi

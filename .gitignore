@@ -1,0 +1,16 @@
+*.log
+*.swp
+*.swo
+*~
+*.tmp
+*.bak
+*.orig
+*.rej
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!.env.example
+.idea/
+__pycache__/
+*.py[cod]
