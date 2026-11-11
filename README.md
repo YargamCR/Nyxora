@@ -11,7 +11,7 @@ Created and maintained by **[YargamCR](https://github.com/YargamCR)**.
 - Five workspaces.
 - Rofi application, run and window launcher.
 - Alacritty terminal configuration.
-- Picom compositor configuration.
+- Optional Picom compositor configuration.
 - Dark and light themes for AwesomeWM and Rofi.
 - Theme switcher and system checker.
 - Backup-aware installer and uninstaller.
@@ -29,7 +29,7 @@ Required applications:
 - AwesomeWM
 - Rofi
 - Alacritty
-- Picom
+- Picom (optional; not started automatically)
 
 The dependency installer also installs JetBrainsMono Nerd Font and optional desktop utilities such as `feh` and `network-manager-applet`.
 

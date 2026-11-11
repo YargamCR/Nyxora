@@ -32,8 +32,10 @@ end)
 local function run_once(command, process)
     awful.spawn.with_shell(string.format("pgrep -u $USER -x %q >/dev/null || (%s)", process, command))
 end
-run_once("picom --config ~/.config/picom/picom.conf", "picom")
-run_once("nm-applet", "nm-applet")
+awful.spawn.with_shell(
+    "if command -v nm-applet >/dev/null 2>&1; then " ..
+    "pgrep -u \"$USER\" -x nm-applet >/dev/null || nm-applet; fi"
+)
 
 naughty.notify({
     title = "Nyxora",

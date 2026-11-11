@@ -44,7 +44,7 @@ install_dependencies() {
   if command -v pacman >/dev/null 2>&1; then
     echo "Detected pacman (Arch Linux / CachyOS)."
     sudo pacman -S --needed \
-      awesome rofi alacritty picom ttf-jetbrains-mono-nerd \
+      awesome rofi alacritty ttf-jetbrains-mono-nerd \
       xorg-server xorg-xinit feh network-manager-applet
   elif command -v dnf5 >/dev/null 2>&1; then
     echo "Detected dnf5."
@@ -54,7 +54,7 @@ install_dependencies() {
   elif command -v dnf >/dev/null 2>&1; then
     echo "Detected dnf."
     sudo dnf install -y \
-      awesome rofi alacritty picom jetbrains-mono-fonts-all \
+      awesome rofi alacritty jetbrains-mono-fonts-all \
       xorg-x11-server-Xorg xorg-x11-xinit feh NetworkManager-applet
   else
     echo "Unsupported package manager. Supported: pacman, dnf5, dnf." >&2
@@ -67,7 +67,7 @@ if [[ "$INSTALL_DEPS" -eq 1 ]]; then
 fi
 
 missing=()
-for cmd in awesome rofi alacritty picom; do
+for cmd in awesome rofi alacritty; do
   command -v "$cmd" >/dev/null 2>&1 || missing+=("$cmd")
 done
 
