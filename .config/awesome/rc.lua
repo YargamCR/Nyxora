@@ -23,7 +23,13 @@ naughty.config.defaults.position = "top_right"
 naughty.config.defaults.margin = 14
 naughty.config.defaults.spacing = 8
 
+local wallpaper = config_dir .. "wallpapers/abstract-paper-cut-shape-wave-background/wallpaper.jpg"
+
 awful.screen.connect_for_each_screen(function(s)
+    if gears.filesystem.file_readable(wallpaper) then
+        gears.wallpaper.maximized(wallpaper, s)
+    end
+
     awful.tag({ "1", "2", "3", "4", "5" }, s, awful.layout.layouts[1])
     require("widgets.bar").setup(s)
 end)
