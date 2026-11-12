@@ -10,7 +10,7 @@ local M = {}
 M.clientkeys = gears.table.join(
     awful.key({ mod }, "f", function(c) c.fullscreen = not c.fullscreen; c:raise() end,
         { description = "toggle fullscreen", group = "client" }),
-    awful.key({ mod, "Shift" }, "c", function(c) c:kill() end,
+    awful.key({ mod, "Shift" }, "w", function(c) c:kill() end,
         { description = "close window", group = "client" }),
     awful.key({ mod, "Control" }, "space", awful.client.floating.toggle,
         { description = "toggle floating", group = "client" }),
@@ -28,7 +28,7 @@ M.clientbuttons = gears.table.join(
 
 local globalkeys = gears.table.join(
     awful.key({ mod }, "Return", function() awful.spawn(terminal) end, { description = "terminal", group = "Nyxora" }),
-    awful.key({ mod }, "d", function() awful.spawn.with_shell(launcher) end, { description = "application launcher", group = "Nyxora" }),
+    awful.key({ mod }, "e", function() awful.spawn.with_shell(launcher) end, { description = "application launcher", group = "Nyxora" }),
     awful.key({ mod }, "s", hotkeys_popup.show_help, { description = "show keybindings", group = "Nyxora" }),
     awful.key({ mod, "Control" }, "r", awesome.restart, { description = "restart Awesome", group = "Nyxora" }),
     awful.key({ mod, "Shift" }, "q", awesome.quit, { description = "quit Awesome", group = "Nyxora" }),
@@ -41,6 +41,7 @@ local globalkeys = gears.table.join(
     awful.key({ mod }, "h", function() awful.tag.incmwfact(-0.05) end, { description = "shrink master", group = "Layout" }),
     awful.key({ mod }, "l", function() awful.tag.incmwfact(0.05) end, { description = "grow master", group = "Layout" }),
     awful.key({ mod, "Control" }, "n", function() awful.screen.focus_relative(1) end, { description = "next screen", group = "Screen" }),
+    awful.key({ mod, "Shift" }, "s", function()awful.spawn("flameshot gui")end, { description = "take screenshot", group = "Nyxora" }),
     awful.key({ mod }, "r", function() awful.spawn("rofi -show run") end, { description = "run command", group = "Nyxora" })
 )
 

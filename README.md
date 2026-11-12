@@ -4,6 +4,8 @@ A minimal, keyboard-first desktop configuration built around **AwesomeWM for X11
 
 Created and maintained by **[YargamCR](https://github.com/YargamCR)**.
 
+![Nyxora desktop](screenshots/nyxora-desktop.png)
+
 ## Features
 
 - Modular AwesomeWM configuration organized into `core`, `modules`, `widgets` and `themes`.
@@ -104,9 +106,10 @@ fish_add_path ~/.local/bin
 | Shortcut | Action |
 |---|---|
 | `Super + Enter` | Open Alacritty |
-| `Super + D` | Application launcher |
+| `Super + E` | Application launcher (Rofi) |
 | `Super + R` | Run command |
 | `Super + S` | Show keybindings |
+| `Super + Shift + S` | Take screenshot (Flameshot) |
 | `Super + 1..5` | Switch workspace |
 | `Super + Shift + 1..5` | Move focused window to workspace |
 | `Super + J / K` | Focus next / previous window |
@@ -118,7 +121,7 @@ fish_add_path ~/.local/bin
 | `Super + Ctrl + N` | Focus next screen |
 | `Super + H / L` | Shrink / grow master area |
 | `Super + F` | Toggle fullscreen |
-| `Super + Shift + C` | Close window |
+| `Super + Shift + W` | Close window |
 | `Super + Shift + T` | Dark theme |
 | `Super + Ctrl + T` | Light theme |
 | `Super + Ctrl + R` | Restart AwesomeWM |
@@ -169,7 +172,7 @@ Installation history is stored in:
 - Picom configuration: `.config/picom/`
 - Wallpapers: `wallpapers/`
 
-No wallpapers are bundled. Add your own images under `wallpapers/`.
+Nyxora includes a default wallpaper under `wallpapers/`. You can replace it with your own image.
 
 ## Important notes
 
